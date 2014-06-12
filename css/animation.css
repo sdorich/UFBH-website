@@ -1,0 +1,26 @@
+/*------------------------------------------------------------------
+* Animations (Keyframes)
+------------------------------------------------------------------*/
+
+@-webkit-keyframes basset-move {
+    1% {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        -webkit-transform: translateY(-30%);
+    }
+	50% { 
+        -webkit-transform: translateX(-340%);
+    }
+    50.0001% {
+        left: 0%;
+    }
+    50.001% {
+        -webkit-transform: translateX(340%);
+    }
+}
+
+@-webkit-keyframes basset-float {
+	50% { -webkit-transform: rotateZ(5deg) translateY(-5px); }
+}

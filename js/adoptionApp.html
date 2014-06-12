@@ -1,0 +1,97 @@
+<script type="text/javascript">
+    var depCounter = 1;
+    
+    // ========== FUNCTIONS ===========
+       function resetPetFields() {
+          document.getElementById("petName").value = "";
+          document.getElementById("breed").value = "";
+          document.getElementById("petAge").value = "";
+          document.getElementById("ageAltered").value = "";
+          document.getElementById("gender").options[0].selected = true;
+          document.getElementById("altered").options[0].selected = true;
+       }
+    
+       function clearPetList() {
+          if (confirm("Are you sure you want to clear all pet information from the list?"))
+             document.getElementById("allPets").value = "";
+       }
+    
+       function validatePet() {
+          var okayToAdd = true;
+          var missingInfoString = "The following information is required for each pet:\n\n";
+    
+          if (document.getElementById("petName").value == "") {
+             missingInfoString += "     - Pet Name \n";
+             okayToAdd = false;
+          }
+          if (document.getElementById("gender").value == "") {
+             missingInfoString += "     - Gender \n";
+             okayToAdd = false;
+          }
+          if (document.getElementById("altered").value == "") {
+             missingInfoString += "     - Altered \n";
+             okayToAdd = false;
+          }
+          if (document.getElementById("ageAltered").value == "") {
+             missingInfoString += "     - Age Altered \n";
+             okayToAdd = false;
+          }
+    
+          if (!okayToAdd) {
+             alert(missingInfoString);
+             return false;
+          }
+          return true;
+       }
+    
+       function addPet() {
+          if (validatePet()) {
+             if (confirm("The following pet will be added:\n\n" +
+                 "Name:\t\t" + document.getElementById("petName").value.toUpperCase() + "\n" +
+                 "Breed:\t\t" + document.getElementById("breed").value.toUpperCase() + "\n" +
+                 "Age:\t\t" + document.getElementById("petAge").value.toUpperCase() + "\n" +
+                 "Gender:\t\t" + document.getElementById("gender").value + "\n" +
+                 "Altered:\t\t" + document.getElementById("altered").value + "\n" +
+                 "Age Altered:\t" +document.getElementById("ageAltered").value + "\n"))
+                {
+                 document.getElementById("allPets").value += depCounter + ") " +
+                 document.getElementById("petName").value.toUpperCase() + " (" +
+                 document.getElementById("breed").value.toUpperCase() + "/" +
+                 document.getElementById("petAge").value.toUpperCase() + "/" +
+                 document.getElementById("gender").value.toUpperCase() + "/" +
+                 "Altered: " + document.getElementById("altered").value.toUpperCase() + "/" +
+                 "Age Altered: " + document.getElementById("ageAltered").value.toUpperCase() + ") \n";
+    
+                 depCounter ++;
+                 resetPetFields();
+             }
+          }  
+       }
+</script>
+    
+<script type="text/javascript">
+    <!--
+    
+    function init()
+    {
+        if (!document.layers) return;
+        var box = document.forms[0].elements;
+        for (var i=0;i<box.length;i++)
+        {
+            box[i].disabled = false;
+        }
+    }
+    
+    function disableIt(obj)
+    {
+        obj.disabled = !(obj.disabled);
+        var z = (obj.disabled) ? 'disabled' : 'enabled';
+        
+    }
+    
+    function extracheck(obj)
+    {
+        return !obj.disabled;
+    }
+    // -->
+</script>
